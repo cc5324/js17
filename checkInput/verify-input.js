@@ -5,9 +5,7 @@ function isInteger(input) {
 }
 
 function isNotEmpty(input) {
-  if (input.trim() === "") {
-    throw "請勿輸入空白";
-  }
+  if (input.trim() === "") throw "請勿輸入空白";
 }
 
 function isDecimalNumber(input) {
@@ -21,7 +19,7 @@ function isDecimalNumber(input) {
   if (input.includes("e")) throw "請勿使用科學記號表示法";
   if (input.includes("E")) throw "請勿使用科學記號表示法";
 
-  if (input.length > 1 && input.startsWith("0"))
+  if (input.length > 1 && input.startsWith("0") && !input.startsWith("0."))
     throw "首位數字不得為 0，請去掉 0 後重新輸入";
 }
 

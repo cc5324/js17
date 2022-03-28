@@ -1,13 +1,20 @@
-export function mainFormula(number){
-  let formula = '';
-    for(let i = 1; i <= number; i++){
-    if (i ==1) {
-      formula += '1'
-    } else if (i%2 == 1){
-      formula += `-${i}`;
+export function mainFormula(lastNumber) {
+  let formula = "";
+  let sum = 0;
+  for (let number = 1; number <= lastNumber; number++) {
+    if (number == 1) {
+      formula += "1";
+      sum += 1;
+    } else if (number % 2 == 1) {
+      formula += `-${number}`;
+      sum -= number;
     } else {
-      formula += `+${i}`;
+      formula += `+${number}`;
+      sum += number;
     }
   }
-  return formula;
+  return {
+    formula: formula,
+    sum: sum,
+  };
 }
