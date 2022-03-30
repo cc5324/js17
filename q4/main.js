@@ -1,21 +1,17 @@
-// import promptSync from "prompt-sync";
-// import { isInteger, isPositive } from "../checkInput/verify-input.js";
-import { mainFormula } from "./formula.js";
-import { getUserInput } from "./get-input.js";
+import { checkInteger, checkPositive } from "../validation/validateInput.js";
+import { getInputAndValidate } from "../validation/getInputAndValidate.js";
+import { listFormulaAndCalculate } from "./formula.js";
 
 main();
 
 function main() {
-  let number = getUserInput();
-  // let equation = `${mainFormula(number)} = ${eval(mainFormula(number))}`;
-  let result = mainFormula(number);
-
-  // let formula = result.formula;
-  // let sum = result.sum;
-
-  let formula, sum;
-  ({ formula, sum } = result);
-
-  let equation = `${formula} = ${sum}`;
+  const setting = {
+    question: "請輸入一個正整數",
+    validators: [checkInteger, checkPositive],
+  };
+  const number = getInputAndValidate(setting);
+  const result = listFormulaAndCalculate(number);
+  const { formula, sum } = result;
+  const equation = `${formula} = ${sum}`;
   console.log(equation);
 }

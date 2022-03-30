@@ -1,11 +1,11 @@
-export function mainFormula(lastNumber) {
+export function listFormulaAndCalculate(lastNumber) {
   let formula = "";
   let sum = 0;
   for (let number = 1; number <= lastNumber; number++) {
-    if (number == 1) {
+    if (number === 1) {
       formula += "1";
       sum += 1;
-    } else if (number % 2 == 1) {
+    } else if (number % 2 === 1) {
       formula += `-${number}`;
       sum -= number;
     } else {
@@ -14,7 +14,7 @@ export function mainFormula(lastNumber) {
     }
   }
   return {
-    formula: formula,
-    sum: sum,
+    formula,
+    sum,
   };
 }
