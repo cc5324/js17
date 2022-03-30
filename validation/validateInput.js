@@ -38,14 +38,19 @@ function checkNotNegative(input) {
   if (Number(input) < 0) throw "請勿輸入負數";
 }
 
+function checkEven(input) {
+  checkInteger;
+  if (Number(input) % 2 !== 0) throw "請輸入偶數";
+}
+
 function checkOverNum(input, min) {
   checkDecimalNumber(input);
   if (Number(input) < min) throw `請輸入大於 ${min} 的數字`;
 }
 
-function checkEven(input) {
-  checkInteger;
-  if (Number(input) % 2 !== 0) throw "請輸入偶數";
+function checkOverFour(input) {
+  checkDecimalNumber(input);
+  if (Number(input) < 4) throw `請輸入大於 4(含)的偶數`;
 }
 
 export {
@@ -54,6 +59,7 @@ export {
   checkDecimalNumber,
   checkPositive,
   checkNotNegative,
-  checkOverNum,
   checkEven,
+  checkOverNum,
+  checkOverFour,
 };
