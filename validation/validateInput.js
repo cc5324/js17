@@ -2,6 +2,10 @@ function checkNotEmpty(input) {
   if (input.trim() === "") throw "請勿輸入空白";
 }
 
+function checkAlphabet(input) {
+  checkNotEmpty(input);
+}
+
 function checkDecimalNumber(input) {
   checkNotEmpty(input);
   if (isNaN(input) === true) throw "請勿輸入文字";
@@ -16,6 +20,8 @@ function checkDecimalNumber(input) {
   if (input.length > 1 && input.startsWith("0") && !input.startsWith("0."))
     throw "數字開頭不得為 0，請去掉 0 後重新輸入";
 }
+
+// 以下為確認數字類別
 
 function checkInteger(input) {
   checkDecimalNumber(input);

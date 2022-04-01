@@ -16,8 +16,8 @@ function main() {
     question: "請輸入第二個數字",
     validators: [checkInteger],
   };
-  const number1 = getInputAndValidate(settingNum1);
-  const number2 = getInputAndValidate(settingNum2);
+  const number1 = Number(getInputAndValidate(settingNum1));
+  const number2 = Number(getInputAndValidate(settingNum2));
 
   const divisor = 3;
   const result = isReminderSame(number1, number2, divisor);
