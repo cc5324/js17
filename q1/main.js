@@ -5,15 +5,12 @@ import { willPlayMovie } from "./willPlayMovie.js";
 main();
 
 function main() {
-  // const question = "請輸入客人人數：";
-  // const validators = [checkInteger, checkNotNegative];
-  // const guestNumber = getInput(question);
   const setting = {
     question: "請輸入客人人數",
     validators: [checkInteger, checkNotNegative],
   };
 
-  const guestNumber = getInputAndValidate(setting);
+  const guestNumber = Number(getInputAndValidate(setting));
 
   if (willPlayMovie(guestNumber)) {
     console.log(`觀影人數: ${guestNumber}，照常播放電影`);
