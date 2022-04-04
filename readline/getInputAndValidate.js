@@ -1,11 +1,9 @@
 import { rl } from "./readline.js";
 
 /**
- * 1.Get user input from prompt-sync
- * 2.Validate input by validators specified in param
  * @param {object} setting
  * @param {string} setting.question question to prompt
- * @param {array} setting.validators validate input functions
+ * @param {Function[]} setting.validators validate input functions
  * @param {Number|String|Boolean} setting.returnType coercion input to specific type
  */
 

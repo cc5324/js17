@@ -1,6 +1,6 @@
 export function getPrice(age) {
   const originalPrice = 400;
-  const primePrice = 200;
+  const primePrice = originalPrice * 0.5;
 
   //? 當判斷範圍是一個區間
   //! 舊版

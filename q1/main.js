@@ -1,6 +1,6 @@
 import { checkInteger, checkNotNegative } from "../validation/validateInput.js";
 import { getInputAndValidate } from "../validation/getInputAndValidate.js";
-import { willPlayMovie } from "./willPlayMovie.js";
+import { canPlayMovie } from "./canPlayMovie.js";
 
 main();
 
@@ -12,7 +12,7 @@ function main() {
 
   const guestNumber = Number(getInputAndValidate(setting));
 
-  if (willPlayMovie(guestNumber)) {
+  if (canPlayMovie(guestNumber)) {
     console.log(`觀影人數: ${guestNumber}，照常播放電影`);
   } else {
     console.log("今日不播放電影");

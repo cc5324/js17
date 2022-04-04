@@ -1,23 +1,27 @@
 import promptSync from "prompt-sync";
+import { checkInteger, checkNotEmpty } from "./validateInput.js";
 
 /**
- * 1.Get user input from prompt-sync
- * 2.Validate input by validators specified in param
- * @param {object} setting - contain prompt question(string) and validators(function name) to use
- * @returns {string} user input (if validated successfully)
+ * @param {string} question user input (if validated successfully)
+ * @param {Function[]} validators validate input functions
  */
 
-export function getInputAndValidate(setting) {
+export function getInputAndValidate({
+  question,
+  validators = [checkNotEmpty],
+} = {}) {
+  console.log(question);
   const prompt = promptSync({ sigint: true });
-  const userInput = prompt(`${setting.question}: `);
-
+  const userInput = prompt(`${question}: `);
   try {
-    setting.validators.forEach((validator) => {
+    // checkNotEmpty(userInput);
+    // checkInteger();
+    validators.forEach((validator) => {
       validator(userInput);
     });
     return userInput;
   } catch (error) {
     console.log(error);
-    return getInputAndValidate(setting);
+    return getInputAndValidate({ question, validators });
   }
 }

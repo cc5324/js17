@@ -5,7 +5,7 @@ import {
   checkNotNegative,
 } from "../../validation/validateInput.js";
 import { getInputAndValidate } from "./getInputAndValidate.js";
-import { willPlayMovie } from "../willPlayMovie.js";
+import { canPlayMovie } from "../canPlayMovie.js";
 import { rl } from "../../readline/readline.js";
 
 main();
@@ -19,7 +19,7 @@ async function main() {
   let guestNumber = await getInputAndValidate(setting);
   // guestNumber = Number(guestNumber);
 
-  if (willPlayMovie(guestNumber)) {
+  if (canPlayMovie(guestNumber)) {
     console.log(`觀影人數: ${guestNumber}，照常播放電影`);
     rl.close();
   } else {
