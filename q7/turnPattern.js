@@ -11,7 +11,9 @@ export default function turnPattern(customizedPattern, customizedDirection) {
   //* 找出原圖形的最寬（＝>找陣列中的，最長的子陣列長度）
   //* 根據寬度：建立空白陣列作為模板
   const patternLength = getPatternLength(patternArray);
-  const emptyTemplate = Array(patternLength).fill(" ");
+  // const emptyTemplate = Array(patternLength).fill(" ");
+  const upDownTemplate = Array(patternLength).fill(" ");
+  const rightLeftTemplate = Array(patternArray.length).fill(" ");
 
   function getPatternLength(arrays) {
     const lengthList = arrays.map((array) => array.length);
@@ -53,6 +55,7 @@ export default function turnPattern(customizedPattern, customizedDirection) {
 
   //* 生成 reverse 愛心的 dot map (右轉 ＆ 向下轉用)
   const reverseOriginalDotMap = Object.assign([], originalDotMap).reverse();
+  let template = [];
 
   function turn(direction) {
     if (direction === "up" || direction === "left") {
@@ -65,18 +68,20 @@ export default function turnPattern(customizedPattern, customizedDirection) {
         //為了要讓他可以讀到 rowIndex 和 dotIndex
         if (direction === "up" || direction === "down") {
           var putOrder = rowIndex;
+          template = upDownTemplate;
         } else {
           var putOrder = dotIndex;
+          template = rightLeftTemplate;
         }
 
         if (dot === 0) {
-          emptyTemplate[putOrder] += " ";
+          template[putOrder] += " ";
         } else {
-          emptyTemplate[putOrder] += "*";
+          template[putOrder] += "*";
         }
       });
     });
-    return emptyTemplate.join("\n");
+    return template.join("\n");
   }
 
   return turn(direction);
