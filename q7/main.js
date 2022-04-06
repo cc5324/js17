@@ -1,7 +1,33 @@
+import { getInputAndValidate } from "../syncInput/getInputAndValidate.js";
+
 // main();
 
 // function main() {
+//   const setting = {};
 
+//   const customizedPattern = getAlphabetInput("請選擇圖形為'箭頭'或'愛心'");
+//   const customizedDirection = getAlphabetInput("請輸入方向：上、下、左、右");
+//   const translation = {
+//     上: "up",
+//     下: "down",
+//     左: "left",
+//     右: "right",
+//   };
+
+//   let result = turn(translation[customizedDirection]);
+//   console.log(result);
+// }
+
+// function checkDirectionInput(input) {
+//   checkNotEmpty(input);
+//   const directions = ['上', '下', '左', '右']
+//   if !(directions.includes(input)) throw new Error('請擇一輸入上、下、左、右')
+// }
+
+// function checkPatternInput(input) {
+//   checkNotEmpty(input);
+//   const directions = ['箭頭', '愛心']
+//   if !(directions.includes(input)) throw new Error('請擇一輸入上、下、左、右')
 // }
 
 const heart = `
@@ -25,6 +51,7 @@ const arrow = `
   ***
 `;
 
+//* 將圖形切割成陣列
 const heartArray = arrow.split("\n");
 
 //* 移除頭尾的換行空白
@@ -32,6 +59,7 @@ heartArray.pop();
 heartArray.shift();
 
 const patternLength = getPatternLength(heartArray);
+const heartTemplate = Array(patternLength).fill(" ");
 
 //* 找出原圖形的最寬（＝>找陣列中的，最長子陣列長度）
 function getPatternLength(arrays) {
@@ -50,8 +78,6 @@ function getPatternLength(arrays) {
   return lengthList[0];
 }
 
-const heartTemplate = Array(patternLength).fill(" ");
-
 const padHeartArray = heartArray.map((ele) =>
   ele.replaceAll(" ", "0").padEnd(patternLength, "0")
 );
@@ -67,25 +93,70 @@ for (let row = 0; row < padHeartArray.length; row++) {
     } else {
       var isStar = 0;
     }
-    rowArr.push([row, column, isStar]);
+    rowArr.push(isStar);
   }
 
   originalDotMap.push(rowArr);
 }
 
-//! 根據 dot map 印出原版愛心
-let upHeart = Object.assign([], heartTemplate);
+//! new
+// const directionArg = {
+//   up: {
+//     map: originalDotMap,
+//     putOrder: rowIndex,
+//   },
+//   down: {
+//     map: reverseOriginalDotMap,
+//     putOrder: rowIndex,
+//   },
+//   left: {
+//     map: originalDotMap,
+//     putOrder: dotIndex,
+//   },
+//   right: {
+//     map: reverseOriginalDotMap,
+//     putOrder: dotIndex,
+//   },
+// };
 
-originalDotMap.forEach((row, rowIndex) => {
-  row.forEach((dot, dotIndex) => {
-    if (dot[2] === 0) {
-      upHeart[dotIndex] += " ";
-    } else {
-      upHeart[dotIndex] += "*";
-    }
+const reverseOriginalDotMap = Object.assign([], originalDotMap).reverse();
+
+let pattern = Object.assign([], heartTemplate);
+
+function turn(direction) {
+  // switch (direction) {
+  //   case up:
+  //     let map = originalDotMap;
+  //     let putOrder = rowIndex;
+  //   case down:
+  //     let map = reverseOriginalDotMap;
+  //     let putOrder = rowIndex;
+  // }
+  if (direction === "up" || direction === "right") {
+    var map = originalDotMap;
+  } else {
+    var map = reverseOriginalDotMap;
+  }
+  map.forEach((row, rowIndex) => {
+    row.forEach((dot, dotIndex) => {
+      //為了要讓他可以讀到 rowIndex 和 dotIndex
+      if (direction === "up" || direction === "down") {
+        var putOrder = rowIndex;
+      } else {
+        var putOrder = dotIndex;
+      }
+
+      if (dot === 0) {
+        pattern[putOrder] += " ";
+      } else {
+        pattern[putOrder] += "*";
+      }
+    });
   });
-});
-console.log(upHeart.join("\n"));
+  return pattern.join("\n");
+}
+
+console.log(turn("down"));
 
 //* 歷史遺跡
 //! 根據 dot map 印出原版愛心
