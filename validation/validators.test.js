@@ -6,7 +6,7 @@ import {
   checkNotNegative,
   checkOverNum,
   checkEven,
-} from "./validateInput";
+} from "./validators";
 
 //驗證使用者輸入，故測資以字串為主
 

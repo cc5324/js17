@@ -1,22 +1,23 @@
 import {
   checkInteger,
-  checkNotEmpty,
-  checkDecimalNumber,
   checkPositive,
   checkNotNegative,
-  checkEven,
-  checkOverNum,
-} from "../validation/validateInput.js";
-import { getInputAndValidate } from "../validation/getInputAndValidate.js";
+} from "../validation/validators.js";
+import { getInputAndValidate } from "./getInputAndValidate.js";
 
 function getIntegerInput(question) {
-  return getInputAndValidate({ question, validators: [checkInteger] });
+  return getInputAndValidate({
+    question,
+    validators: [checkInteger],
+    returnType: Number,
+  });
 }
 
 function getNaturalNumberInput(question) {
   return getInputAndValidate({
     question,
     validators: [checkInteger, checkNotNegative],
+    returnType: Number,
   });
 }
 
@@ -24,6 +25,7 @@ function getPositiveIntegerInput(question) {
   return getInputAndValidate({
     question,
     validators: [checkInteger, checkPositive],
+    returnType: Number,
   });
 }
 
