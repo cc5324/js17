@@ -1,16 +1,22 @@
-export function divi(numInput) {
+export default function divi(numInput, counts = 0) {
   const diviend = numInput / 3;
-  let count = 1;
+  counts++;
   if (isFloatHundredthZero(diviend)) {
-    return count;
+    console.log(counts);
+    console.log(diviend);
+    return counts;
   } else {
-    count += 1;
-    return divi(diviend / 3);
+    console.log(counts);
+    console.log(diviend);
+    return divi(diviend, counts);
   }
 }
 
 function isFloatHundredthZero(numInput) {
   const strInput = String(numInput);
+  if (getPointIndex(numInput) === -1) {
+    return false;
+  }
   const floatHundredIndex = getPointIndex(numInput) + 2;
   return strInput[floatHundredIndex] === "0";
 }
@@ -20,4 +26,4 @@ function getPointIndex(numInput) {
   return Number(pointIndex);
 }
 
-console.log(divi(3));
+export { isFloatHundredthZero, getPointIndex };
