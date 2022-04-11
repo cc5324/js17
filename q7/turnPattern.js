@@ -24,14 +24,14 @@ export default function turnPattern(customizedPattern, customizedDirection) {
   //* 將圖形切割成陣列
   //* 移除頭尾空白
   //* 根據原始圖形生成二維陣列
-  let dotMap = pattern
+  const dotMap = pattern
     .split("\n")
     .filter((row) => row)
     .map((row) => row.padEnd(rotatedPatternWidth, " "))
     .map((row) => Array.from(row));
   // console.log(`dotMap`, dotMap);
 
-  let map =
+  const map =
     direction === "up" || direction === "left" ? dotMap : dotMap.reverse();
   // console.log("dotmap", dotMap);
 
@@ -40,7 +40,7 @@ export default function turnPattern(customizedPattern, customizedDirection) {
 
   map.forEach((row, rowIndex) => {
     row.forEach((dot, dotIndex) => {
-      let putOrder =
+      const putOrder =
         direction === "up" || direction === "down" ? rowIndex : dotIndex;
 
       emptyTemplate[putOrder] += dot;

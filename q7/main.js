@@ -1,5 +1,5 @@
-import { getInputAndValidate } from "../syncInput/getInputAndValidate.js";
-import { checkPatternInput, checkDirectionInput } from "./checkChoiceInput.js";
+// import { getInputAndValidate } from "../syncInput/getInputAndValidate.js";
+// import { checkPatternInput, checkDirectionInput } from "./checkChoiceInput.js";
 import { getOptionsInput } from "../syncInput/getOptionsInput.js";
 import turnPattern from "./turnPattern.js";
 
@@ -7,31 +7,25 @@ main();
 
 function main() {
   // const settingPattern = {
-  //   question: "Please choose arrow / heart / triangle",
-  //   validators: [checkPatternInput],
+  //   question: "請輸入 arrow / heart / triangle / S",
+  //   options: ["arrow", "heart", "triangle", "s"],
   // };
 
   // const settingDirection = {
-  //   question: "Please enter up / down / left / right",
-  //   validators: [checkDirectionInput],
+  //   question: "請輸入 up / down / left / right",
+  //   options: ["up", "down", "left", "right"],
   // };
 
-  const settingPattern = {
-    question: "請輸入 arrow / heart / triangle",
-    options: ["arrow", "heart", "triangle"],
-  };
+  // const customizedPattern = getOptionsInput(settingPattern);
+  // const customizedDirection = getOptionsInput(settingDirection);
 
-  const settingDirection = {
-    question: "請輸入 up / down / left / right",
-    options: ["up", "down", "left", "right"],
-  };
-
-  const customizedPattern = getOptionsInput(settingPattern).toLowerCase();
-  const customizedDirection = getOptionsInput(settingDirection).toLowerCase();
-
-  // const customizedPattern = getInputAndValidate(settingPattern).toLowerCase();
-  // const customizedDirection =
-  //   getInputAndValidate(settingDirection).toLowerCase();
+  const customizedPattern = getOptionsInput([
+    "arrow",
+    "heart",
+    "triangle",
+    "s",
+  ]);
+  const customizedDirection = getOptionsInput(["up", "down", "left", "right"]);
 
   const patternBank = {
     arrow: `
@@ -58,38 +52,24 @@ function main() {
  ***
 *****
 `,
+    s: `
+  *****
+ **   *1
+ **
+  *****
+     ***
+2*   **
+ ****  
+`,
   };
+  let originalPattern = patternBank[customizedPattern];
 
-  let finalPattern = turnPattern(
-    patternBank[customizedPattern],
-    customizedDirection
-  );
+  let finalPattern = turnPattern(originalPattern, customizedDirection);
   console.log(`Before:
-${patternBank[customizedPattern]}`);
+${originalPattern}`);
 
   console.log(`After:
 
 ${finalPattern}
 `);
 }
-
-// const heart = `
-//   ** **
-//  *******
-// *********
-// *********
-//  *******
-//   *****
-//    ***
-//     *
-// `;
-
-// const arrow = `
-//    *
-//   ***
-//  *****
-// *******
-//   ***
-//   ***
-//   ***
-// `;
