@@ -17,12 +17,12 @@ function main() {
   // };
 
   const settingPattern = {
-    question: "Please enter arrow / heart / triangle",
+    question: "請輸入 arrow / heart / triangle",
     options: ["arrow", "heart", "triangle"],
   };
 
   const settingDirection = {
-    question: "Please enter up / down / left / right",
+    question: "請輸入 up / down / left / right",
     options: ["up", "down", "left", "right"],
   };
 

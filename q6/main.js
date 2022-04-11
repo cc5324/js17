@@ -4,7 +4,7 @@ import { getInputAndValidate } from "../asyncInput/getInputAndValidate.js";
 import { getEngAlphabetInput } from "../asyncInput/getAlphabetInput.js";
 
 import { rl } from "../asyncInput/readline.js";
-import { pickOddCharacter } from "./pickOddCharacter.js";
+import { pickOddItems, pickOddCharacter } from "./pickOdd.js";
 
 main();
 
@@ -24,37 +24,27 @@ async function main() {
     names.push(inputName);
   }
 
-  const targetIndexes = [0, 2];
+  //* 修改版本
+  let oddCharacterNames = names
+    .map((name) => Array.from(name))
+    .map(pickOddCharacter);
+  console.log(`oddCharacterNames`, oddCharacterNames);
 
-  names.forEach((name, index) => {
-    if (targetIndexes.includes(index)) {
-      console.log(
-        `第${index + 1}個名字的單數個字母有:${pickOddCharacter(name)}`
-      );
-    }
-  });
+  let [firstNameOddCharacter, thirdNameOddCharacter] =
+    pickOddItems(oddCharacterNames);
 
-  // const iterator = names.entries();
-  // for (let [key, value] of iterator) {
-  //   if (targetIndex.includes(key)) {
+  console.log(`第一個英文名字的單數個字母有 ${firstNameOddCharacter}`);
+  console.log(`第三個英文名字的單數個字母有 ${thirdNameOddCharacter}`);
+
+  //* 原始版本
+  // const targetIndexes = [0, 2];
+
+  // names.forEach((name, index) => {
+  //   if (targetIndexes.includes(index)) {
   //     console.log(
-  //       `第${key + 1}個名字的單數個字母有:${pickOddCharacter(value)}`
+  //       `第${index + 1}個名字的單數個字母有:${pickOddCharacter(name)}`
   //     );
   //   }
-  // }
-
-  // const firstName = names[0];
-  // const secondName = names[2];
-
-  // console.log(
-  //   `第${names.indexOf(firstName) + 1}個名字的單數個字母有:${pickOddCharacter(
-  //     firstName
-  //   )}`
-  // );
-  // console.log(
-  //   `第${names.indexOf(secondName) + 1}個名字的單數個字母有:${pickOddCharacter(
-  //     secondName
-  //   )}`
-  // );
+  // });
   rl.close();
 }
