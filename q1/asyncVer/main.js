@@ -1,11 +1,11 @@
 // import * as readline from "node:asyncInput/promises";
 // import { stdin as input, stdout as output } from "node:process";
 import { checkInteger, checkNotNegative } from "../../validation/validators.js";
-// import { getInputAndValidate } from "../../asyncInput/getInputAndValidate.js
+import { getInputAndValidate } from "../../asyncInput/getFormattedInput.js";
 import { canPlayMovie } from "../canPlayMovie.js";
 import { rl } from "../../asyncInput/readline.js";
 import { getNaturalNumberInput } from "../../asyncInput/getNumberInput.js";
-
+import { getFormattedInput } from "../../asyncInput/getFormattedInput.js";
 main();
 
 async function main() {
@@ -14,7 +14,7 @@ async function main() {
   //   validators: [checkInteger, checkNotNegative],
   //   returnType: Number,
   // };
-  // const guestNumber = await getInputAndValidate(setting);
+  // const guestNumber = await getFormattedInput(setting);
   // guestNumber = Number(guestNumber);
 
   const guestNumber = await getNaturalNumberInput("請輸入客人人數");

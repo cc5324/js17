@@ -1,4 +1,4 @@
-import { getInputAndValidate } from "../syncInput/getInputAndValidate.js";
+import { getFormattedInput } from "../syncInput/getFormattedInput.js";
 import { checkInteger } from "../validation/validators.js";
 import { isReminderSame } from "./isReminderSame.js";
 import { getIntegerInput } from "../syncInput/getNumberInput.js";
@@ -19,8 +19,8 @@ function main() {
   //   validators: [checkInteger],
   //   returnType: Number,
   // };
-  // const number1 = getInputAndValidate(settingNum1);
-  // const number2 = getInputAndValidate(settingNum2);
+  // const number1 = getFormattedInput(settingNum1);
+  // const number2 = getFormattedInput(settingNum2);
 
   const number1 = getIntegerInput("請輸入第一個數字");
   const number2 = getIntegerInput("請輸入第二個數字");

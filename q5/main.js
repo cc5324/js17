@@ -3,7 +3,7 @@ import {
   checkEven,
   checkOverNum,
 } from "../validation/validators.js";
-import { getInputAndValidate } from "../syncInput/getInputAndValidate.js";
+import { getFormattedInput } from "../syncInput/getFormattedInput.js";
 import { umleven } from "./umleven.js";
 
 main();
@@ -14,7 +14,7 @@ function main() {
     validators: [checkInteger, checkEven, checkOverNum(4)],
     returnType: Number,
   };
-  const number = getInputAndValidate(setting);
+  const number = getFormattedInput(setting);
   const result = umleven(number);
   console.log(`結果為：${result}`);
 }

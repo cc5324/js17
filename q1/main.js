@@ -1,5 +1,5 @@
 import { checkInteger, checkNotNegative } from "../validation/validators.js";
-import { getInputAndValidate } from "../syncInput/getInputAndValidate.js";
+import { getFormattedInput } from "../syncInput/getFormattedInput.js";
 import { canPlayMovie } from "./canPlayMovie.js";
 import { getNaturalNumberInput } from "../syncInput/getNumberInput.js";
 
@@ -12,7 +12,7 @@ function main() {
   //   returnType: Number,
   // };
 
-  // const guestNumber = getInputAndValidate(setting);
+  // const guestNumber = getFormattedInput(setting);
 
   const guestNumber = getNaturalNumberInput("請輸入客人人數");
   console.log(typeof guestNumber);

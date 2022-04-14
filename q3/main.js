@@ -1,5 +1,5 @@
 import { checkInteger, checkPositive } from "../validation/validators.js";
-import { getInputAndValidate } from "../syncInput/getInputAndValidate.js";
+import { getFormattedInput } from "../syncInput/getFormattedInput.js";
 
 import { getPositiveIntegerInput } from "../syncInput/getNumberInput.js";
 
@@ -16,7 +16,7 @@ function main() {
   //   validators: [checkInteger, checkPositive],
   //   returnType: Number,
   // };
-  // const userAge = getInputAndValidate(setting);
+  // const userAge = getFormattedInput(setting);
 
   const userAge = getPositiveIntegerInput("請輸入年齡");
 

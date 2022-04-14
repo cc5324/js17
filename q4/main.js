@@ -1,5 +1,5 @@
 import { checkInteger, checkPositive } from "../validation/validators.js";
-import { getInputAndValidate } from "../syncInput/getInputAndValidate.js";
+import { getFormattedInput } from "../syncInput/getFormattedInput.js";
 import { getPositiveIntegerInput } from "../syncInput/getNumberInput.js";
 
 import { listFormulaAndCalculate } from "./formula.js";
@@ -12,7 +12,7 @@ function main() {
   //   validators: [checkInteger, checkPositive],
   //   returnType: Number,
   // };
-  // const number = getInputAndValidate(setting);
+  // const number = getFormattedInput(setting);
   const number = getPositiveIntegerInput("請輸入一個正整數");
 
   const formula = listFormulaAndCalculate(number);
