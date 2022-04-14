@@ -8,6 +8,10 @@ function checkAlphabet(input) {
   if (/[^a-zA-Z]/.test(input)) throw new Error("請勿輸入英文字母以外的字符");
 }
 
+function checkAlphabetSentences(input) {
+  if (/[^a-zA-Z\s]/.test(input)) throw new Error("請勿輸入英文字母以外的字符");
+}
+
 function checkDecimalNumber(input) {
   checkNotEmpty(input);
   if (Number.isNaN(Number(input)) === true) throw new Error("請勿輸入文字");
@@ -76,4 +80,5 @@ export {
   checkEven,
   checkOverNum,
   checkAlphabet,
+  checkAlphabetSentences,
 };
