@@ -1,5 +1,5 @@
 import { checkAlphabet } from "../validation/validators.js";
-import { getInputAndValidate } from "../asyncInput/getInputAndValidate.js";
+import { getFormattedInput } from "../asyncInput/getFormattedInput.js";
 
 import { getEngAlphabetInput } from "../asyncInput/getAlphabetInput.js";
 
@@ -19,7 +19,7 @@ async function main() {
 
   let names = [];
   for (let count = 0; count < 4; count++) {
-    // let inputName = await getInputAndValidate(setting);
+    // let inputName = await getFormattedInput(setting);
     let inputName = await getEngAlphabetInput("請輸入英文字母");
     names.push(inputName);
   }

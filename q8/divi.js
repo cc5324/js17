@@ -1,29 +1,13 @@
-export default function divi(numInput, counts = 0) {
-  const diviend = numInput / 3;
+export function divi(numInput, counts = 0) {
+  const diviend = (numInput / 3).toFixed(2); //變成 string 了
   counts++;
-  if (isFloatHundredthZero(diviend)) {
-    console.log(counts);
-    console.log(diviend);
+  if (diviend.slice(-1) === "0") {
+    // console.log(counts);
+    // console.log(diviend);
     return counts;
   } else {
-    console.log(counts);
-    console.log(diviend);
-    return divi(diviend, counts);
+    // console.log(counts);
+    // console.log(diviend);
+    return divi(Number(diviend), counts);
   }
 }
-
-function isFloatHundredthZero(numInput) {
-  const strInput = String(numInput);
-  if (getPointIndex(numInput) === -1) {
-    return false;
-  }
-  const floatHundredIndex = getPointIndex(numInput) + 2;
-  return strInput[floatHundredIndex] === "0";
-}
-
-function getPointIndex(numInput) {
-  const pointIndex = String(numInput).indexOf(".");
-  return Number(pointIndex);
-}
-
-export { isFloatHundredthZero, getPointIndex };

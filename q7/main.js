@@ -1,4 +1,4 @@
-// import { getInputAndValidate } from "../syncInput/getInputAndValidate.js";
+// import { getFormattedInput } from "../syncInput/getFormattedInput.js";
 // import { checkPatternInput, checkDirectionInput } from "./checkChoiceInput.js";
 import { getOptionsInput } from "../syncInput/getOptionsInput.js";
 import turnPattern from "./turnPattern.js";
@@ -19,12 +19,7 @@ function main() {
   // const customizedPattern = getOptionsInput(settingPattern);
   // const customizedDirection = getOptionsInput(settingDirection);
 
-  const customizedPattern = getOptionsInput([
-    "arrow",
-    "heart",
-    "triangle",
-    "s",
-  ]);
+  const customizedPattern = getOptionsInput(["arrow", "heart", "triangle"]);
   const customizedDirection = getOptionsInput(["up", "down", "left", "right"]);
 
   const patternBank = {
@@ -48,18 +43,10 @@ function main() {
     *
 `,
     triangle: `
-  *
- ***
-*****
-`,
-    s: `
-  *****
- **   *1
- **
-  *****
-     ***
-2*   **
- ****  
+1
+12
+123
+1234
 `,
   };
   let originalPattern = patternBank[customizedPattern];
