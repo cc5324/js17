@@ -1,54 +1,37 @@
-import promptSync from "prompt-sync";
+import { rl } from "./readline.js";
 import { checkNotEmpty } from "../validation/validators.js";
 
 /**
+ * @async
  * @param {object} setting
  * @param {string} setting.question question to prompt
  * @param {Function[]} setting.validators validate input functions
  * @param {Number|String|Boolean} setting.returnType coercion input to specific type
  */
 
-// export function getInputAndValidate({
-//   question,
-//   validators = [checkNotEmpty],
-//   returnType = String,
-// } = {}) {
-//   const prompt = promptSync({ sigint: true });
-//   const userInput = prompt(`${question}: `);
-//   try {
-//     validators.forEach((validator) => {
-//       validator(userInput);
-//     });
-//     return returnType(userInput);
-//   } catch (error) {
-//     console.log(error.message);
-//     return getInputAndValidate({ question, validators, returnType });
-//   }
-// }
-
-export function getInputAndValidate({
+export async function getFormattedInput({
   question,
   validators = [checkNotEmpty],
   returnType = String,
 } = {}) {
-  const userInput = getInput(question);
+  const userInput = await getInput(question);
   try {
     validateInput(userInput, validators);
   } catch (error) {
     console.log(error.message);
-    return getInputAndValidate({ question, validators, returnType });
+    return getFormattedInput({ question, validators, returnType });
   }
   return coercionInput(userInput, returnType);
 }
 
 /**
+ * @async
  * @param {string} question
  * @returns {string} user input
  */
 
-function getInput(question) {
-  const prompt = promptSync({ sigint: true });
-  const userInput = prompt(`${question}: `);
+async function getInput(question) {
+  const userInput = rl.question(`${question}: `);
   return userInput;
 }
 
@@ -71,4 +54,29 @@ function validateInput(input, validators) {
 
 function coercionInput(input, returnType) {
   return returnType(input);
+}
+
+/**
+ * @async
+ * @param {object} setting
+ * @param {string} setting.question question to prompt
+ * @param {Function[]} setting.validators validate input functions
+ * @param {Number|String|Boolean} setting.returnType coercion input to specific type
+ */
+
+export async function getInputAndValidate({
+  question,
+  validators = [checkNotEmpty],
+  returnType = String,
+}) {
+  const userInput = await rl.question(`${question}: `);
+  try {
+    validators.forEach((validator) => {
+      validator(userInput);
+    });
+    return returnType(userInput);
+  } catch (error) {
+    console.log(error.message);
+    return getInputAndValidate({ question, validators, returnType });
+  }
 }

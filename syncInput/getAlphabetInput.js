@@ -1,6 +1,19 @@
-import { getInputAndValidate } from "./getInputAndValidate.js";
-import { checkAlphabet } from "../validation/validators.js";
+import { getFormattedInput } from "./getFormattedInput.js";
+import {
+  checkAlphabet,
+  checkAlphabetSentences,
+} from "../validation/validators.js";
 
-export function getAlphabetInput(question) {
-  return getInputAndValidate({ question, validators: [checkAlphabet], String });
+function getAlphabetInput(question) {
+  return getFormattedInput({ question, validators: [checkAlphabet], String });
 }
+
+function getAlphabetSentenceInput(question) {
+  return getFormattedInput({
+    question,
+    validators: [checkAlphabetSentences],
+    String,
+  });
+}
+
+export { getAlphabetInput, getAlphabetSentenceInput };
