@@ -1,17 +1,18 @@
 //* 用 array.map()
 //* Array 長度須相同
-// function addTwoArrayItems(arr1, arr2) {
-//   let multiArr = arr1.map((item, index) => (item += arr2[index]));
-//   return multiArr;
-// }
-
-//* array 長度可以不同
 function addTwoArrayItems(arr1, arr2) {
-  const desiredLength = Math.max(arr1.length, arr2.length);
-  while (arr1.length < desiredLength) arr1.push(0);
-  while (arr2.length < desiredLength) arr2.push(0);
   let multiArr = arr1.map((item, index) => (item += arr2[index]));
   return multiArr;
+}
+
+//* array 長度可以不同
+function addTwoDiffArrayItems(arr1, arr2) {
+  let longArray = arr1.length > arr2.length ? arr1 : arr2;
+  let shortArray = arr1.length <= arr2.length ? arr1 : arr2;
+  shortArray.forEach((element, index) => {
+    longArray[index] += element;
+  });
+  return longArray;
 }
 
 // * 用 for ... of ...
@@ -30,4 +31,4 @@ function addTwoArrayItems(arr1, arr2) {
 //   return multiArray;
 // }
 
-export { addTwoArrayItems };
+export { addTwoArrayItems, addTwoDiffArrayItems };

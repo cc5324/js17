@@ -1,6 +1,6 @@
-// import { getFormattedInput } from "../syncInput/getFormattedInput.js";
+// import { getFormattedInput } from "../utilities/syncInput/getFormattedInput.js";
 // import { checkPatternInput, checkDirectionInput } from "./checkChoiceInput.js";
-import { getOptionsInput } from "../syncInput/getOptionsInput.js";
+import { getOptionsInput } from "../utilities/syncInput/getOptionsInput.js";
 import turnPattern from "./turnPattern.js";
 
 main();

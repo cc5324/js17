@@ -1,9 +1,9 @@
-import { checkAlphabet } from "../validation/validators.js";
-import { getFormattedInput } from "../asyncInput/getFormattedInput.js";
+import { checkAlphabet } from "../utilities/validation/validators.js";
+import { getFormattedInput } from "../utilities/asyncInput/getFormattedInput.js";
 
-import { getEngAlphabetInput } from "../asyncInput/getAlphabetInput.js";
+import { getEngAlphabetInput } from "../utilities/asyncInput/getAlphabetInput.js";
 
-import { rl } from "../asyncInput/readline.js";
+import { rl } from "../utilities/asyncInput/readline.js";
 import { pickOddItems, pickOddCharacter } from "./pickOdd.js";
 
 main();
@@ -18,33 +18,31 @@ async function main() {
   // };
 
   let names = [];
-  for (let count = 0; count < 4; count++) {
+  for (let amount = 0; amount < 4; amount++) {
     // let inputName = await getFormattedInput(setting);
     let inputName = await getEngAlphabetInput("請輸入英文字母");
     names.push(inputName);
   }
 
-  //* 修改版本
-  let oddCharacterNames = names
-    .map((name) => Array.from(name))
-    .map(pickOddCharacter);
-  console.log(`oddCharacterNames`, oddCharacterNames);
+  //* version2
+  // let oddCharacterNames = names
+  //   .map((name) => Array.from(name))
+  //   .map(pickOddCharacter);
+  // console.log(`oddCharacterNames`, oddCharacterNames);
 
-  let [firstNameOddCharacter, thirdNameOddCharacter] =
-    pickOddItems(oddCharacterNames);
+  // let [firstNameOddCharacter, thirdNameOddCharacter] =
+  //   pickOddItems(oddCharacterNames);
 
-  console.log(`第一個英文名字的單數個字母有 ${firstNameOddCharacter}`);
-  console.log(`第三個英文名字的單數個字母有 ${thirdNameOddCharacter}`);
+  // console.log(`第一個英文名字的單數個字母有 ${firstNameOddCharacter}`);
+  // console.log(`第三個英文名字的單數個字母有 ${thirdNameOddCharacter}`);
 
-  //* 原始版本
-  // const targetIndexes = [0, 2];
-
-  // names.forEach((name, index) => {
-  //   if (targetIndexes.includes(index)) {
-  //     console.log(
-  //       `第${index + 1}個名字的單數個字母有:${pickOddCharacter(name)}`
-  //     );
-  //   }
-  // });
+  //* version1
+  names.forEach((name, index) => {
+    if (index % 2 === 0) {
+      console.log(
+        `第${index + 1}個名字的單數個字母有:${pickOddCharacter(name)}`
+      );
+    }
+  });
   rl.close();
 }

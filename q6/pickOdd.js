@@ -11,3 +11,12 @@ function pickOddCharacter(string) {
 }
 
 export { pickOddItems, pickOddCharacter };
+
+function foo(question, array) {}
+
+foo("測試輸入$array，輸出$expected", [
+  { array: [1, 2, 3], expected: [1, 3] },
+  { array: [1], expected: [1] },
+  { array: ["a", "b", "c", "d", "e"], expected: ["a", "c", "e"] },
+  { array: [], expected: [] },
+]);

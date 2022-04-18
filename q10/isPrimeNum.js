@@ -40,7 +40,6 @@ export function isPrimeNum(numInput) {
 
   if (numInput <= 1) return false;
   if (numInput === 2) return true;
-  // if (numInput % 2 === 0) return false;
 
   for (let index = 3; index <= maxDivisor; index += 2) {
     if (numInput % index === 0) {

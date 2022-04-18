@@ -1,5 +1,5 @@
-import divi from "./divi.js";
-import { getPositiveIntegerInput } from "../syncInput/getNumberInput.js";
+import { divi } from "./divi.js";
+import { getPositiveIntegerInput } from "../utilities/syncInput/getNumberInput.js";
 
 main();
 
@@ -8,7 +8,6 @@ function main() {
     "計算某正整數不斷除以 3 時，最少要除多少次，小數點後第 2 位會等於 0"
   );
   const number = getPositiveIntegerInput("請輸入正整數");
-  console.log(number);
-  const diviCounts = divi(number);
-  console.log(`除以 ${diviCounts} 次後小數點後第 2 位會等於 0`);
+  const diviTimes = divi(number);
+  console.log(`除以 ${diviTimes} 次後小數點後第 2 位會等於 0`);
 }

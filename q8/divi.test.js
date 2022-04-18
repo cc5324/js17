@@ -1,4 +1,4 @@
-import divi, { isFloatHundredthZero, getPointIndex } from "./divi.js";
+import { divi } from "./divi.js";
 
 describe("輸入一正整數 n，輸出最少要除以幾次 3 ，小數點後第 2 位會等於 0", () => {
   test.each([
