@@ -1,4 +1,4 @@
-import { getPositiveIntegerInput } from "../syncInput/getNumberInput.js";
+import { getPositiveIntegerInput } from "../utilities/syncInput/getNumberInput.js";
 import { twoFold } from "./twoFold.js";
 
 //TODO 改用線性函式計算未滿 20 分鐘狀況下，細菌數量增長的情況

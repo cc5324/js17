@@ -9,9 +9,9 @@ import { calculateRabbitRestSeconds } from "./calculateRabbitRestSeconds.js";
 main();
 
 function main() {
-  const raceInfo = { distance: 1000 };
+  const raceDistance = 1000;
 
-  const rabbitRestSeconds = calculateRabbitRestSeconds(raceInfo);
+  const rabbitRestSeconds = calculateRabbitRestSeconds(raceDistance);
 
-  console.log(rabbitRestSeconds);
+  console.log(`兔子可以偷懶 ${rabbitRestSeconds} 秒`);
 }

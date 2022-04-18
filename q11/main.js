@@ -1,4 +1,4 @@
-import { getPositiveIntegerInput } from "../syncInput/getNumberInput.js";
+import { getPositiveIntegerInput } from "../utilities/syncInput/getNumberInput.js";
 import { gymFeeCalculator } from "./gymFeeCalculator.js";
 
 function main() {

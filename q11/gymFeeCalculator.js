@@ -35,49 +35,51 @@ function rewards(periods) {
 
 export { gymFeeCalculator, rewards };
 
-// function gymFeeCalculator(periods) {
-//   const basicMonthFee = 500;
-//   // console.log(`basicMonthFee`, basicMonthFee);
+//////////////////////////////
 
-//   const basePrice = calculateBaseFee(periods);
-//   // console.log(`basePrice`, basePrice);
-//   const discount = calculateDiscount(periods);
-//   // console.log(`discount`, discount);
-//   const total = basePrice - discount;
-//   // console.log(`total`, total);
+function gymFeeCalculator(periods) {
+  const basicMonthFee = 500;
+  // console.log(`basicMonthFee`, basicMonthFee);
 
-//   return total;
+  const basePrice = calculateBaseFee(periods);
+  // console.log(`basePrice`, basePrice);
+  const discount = calculateDiscount(periods);
+  // console.log(`discount`, discount);
+  const total = basePrice - discount;
+  // console.log(`total`, total);
 
-//   function calculateBaseFee(periods) {
-//     let total = 0;
-//     let index = 0;
+  return total;
 
-//     // total = basicMonthFee * periods;
+  function calculateBaseFee(periods) {
+    let total = 0;
+    let index = 0;
 
-//     do {
-//       total += basicMonthFee;
-//       index += 1;
-//     } while (index < periods);
+    // total = basicMonthFee * periods;
 
-//     return total;
-//   }
+    do {
+      total += basicMonthFee;
+      index += 1;
+    } while (index < periods);
 
-//   function calculateDiscount(periods) {
-//     return firstPeriodDiscount(periods) + rewards(periods);
+    return total;
+  }
 
-//     function firstPeriodDiscount(periods) {
-//       const percent = 0.79;
-//       const discount = Number(periods) ? basicMonthFee * (1 - percent) : 0;
-//       return discount;
-//     }
+  function calculateDiscount(periods) {
+    return firstPeriodDiscount(periods) + rewards(periods);
 
-//     function rewards(periods) {
-//       let discount = 0;
-//       const rewards = 200;
-//       const fullPeriods = 5;
+    function firstPeriodDiscount(periods) {
+      const percent = 0.79;
+      const discount = Number(periods) ? basicMonthFee * (1 - percent) : 0;
+      return discount;
+    }
 
-//       discount = Math.floor(periods / fullPeriods) * rewards;
-//       return discount;
-//     }
-//   }
-// }
+    function rewards(periods) {
+      let discount = 0;
+      const rewards = 200;
+      const fullPeriods = 5;
+
+      discount = Math.floor(periods / fullPeriods) * rewards;
+      return discount;
+    }
+  }
+}
