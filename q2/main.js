@@ -1,7 +1,7 @@
-import { getFormattedInput } from "../syncInput/getFormattedInput.js";
-import { checkInteger } from "../validation/validators.js";
+import { getFormattedInput } from "../utilities/syncInput/getFormattedInput.js";
+import { checkInteger } from "../utilities/validation/validators.js";
 import { isReminderSame } from "./isReminderSame.js";
-import { getIntegerInput } from "../syncInput/getNumberInput.js";
+import { getIntegerInput } from "../utilities/syncInput/getNumberInput.js";
 
 main();
 

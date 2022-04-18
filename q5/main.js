@@ -2,8 +2,8 @@ import {
   checkInteger,
   checkEven,
   checkOverNum,
-} from "../validation/validators.js";
-import { getFormattedInput } from "../syncInput/getFormattedInput.js";
+} from "../utilities/validation/validators.js";
+import { getFormattedInput } from "../utilities/syncInput/getFormattedInput.js";
 import { umleven } from "./umleven.js";
 
 main();

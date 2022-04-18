@@ -1,6 +1,9 @@
-import { checkInteger, checkPositive } from "../validation/validators.js";
-import { getFormattedInput } from "../syncInput/getFormattedInput.js";
-import { getPositiveIntegerInput } from "../syncInput/getNumberInput.js";
+import {
+  checkInteger,
+  checkPositive,
+} from "../utilities/validation/validators.js";
+import { getFormattedInput } from "../utilities/syncInput/getFormattedInput.js";
+import { getPositiveIntegerInput } from "../utilities/syncInput/getNumberInput.js";
 
 import { listFormulaAndCalculate } from "./formula.js";
 

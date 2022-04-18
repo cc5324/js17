@@ -1,7 +1,10 @@
-import { checkInteger, checkNotNegative } from "../validation/validators.js";
-import { getFormattedInput } from "../syncInput/getFormattedInput.js";
+import {
+  checkInteger,
+  checkNotNegative,
+} from "../utilities/validation/validators.js";
+import { getFormattedInput } from "../utilities/syncInput/getFormattedInput.js";
 import { canPlayMovie } from "./canPlayMovie.js";
-import { getNaturalNumberInput } from "../syncInput/getNumberInput.js";
+import { getNaturalNumberInput } from "../utilities/syncInput/getNumberInput.js";
 
 main();
 

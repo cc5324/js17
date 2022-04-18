@@ -2,7 +2,6 @@ function checkNotEmpty(input) {
   if (input.trim() === "") throw new Error("請勿輸入空白");
 }
 
-// ! 字母驗證，有無正規表達式以外的方式
 function checkAlphabet(input) {
   checkNotEmpty(input);
   if (/[^a-zA-Z]/.test(input)) throw new Error("請勿輸入英文字母以外的字符");
@@ -10,6 +9,12 @@ function checkAlphabet(input) {
 
 function checkAlphabetSentences(input) {
   if (/[^a-zA-Z\s]/.test(input)) throw new Error("請勿輸入英文字母以外的字符");
+}
+
+// ! 放的位置
+function checkSafeInteger(input) {
+  if (Number.isSafeInteger(+input))
+    throw new Error("數字超過可精確表示範圍，請輸入更小的數字");
 }
 
 function checkDecimalNumber(input) {
@@ -74,6 +79,7 @@ function checkOverNum(num) {
 export {
   checkInteger,
   checkNotEmpty,
+  checkSafeInteger,
   checkDecimalNumber,
   checkPositive,
   checkNotNegative,
