@@ -38,6 +38,10 @@ describe("測驗輸入一個等腰三角形與方向，輸出轉向後的圖形"
 *  `;
     expect(turnPattern(inputPattern, "right")).toBe(expectPattern);
   });
+
+  test("輸入非方向之其他字串 應報錯", () => {
+    expect(() => turnPattern(input, "wrong")).toThrow();
+  });
 });
 
 describe("測驗輸入一個等腰三角形與方向，輸出轉向後的圖形長寬", () => {
@@ -78,5 +82,9 @@ describe("測驗輸入一個等腰三角形與方向，輸出轉向後的圖形�
       patternWidth: 5,
     };
     expect(getRotatedPatternSides(input, "right")).toEqual(expected);
+  });
+
+  test("輸入非方向之其他字串 應報錯", () => {
+    expect(() => getRotatedPatternSides(input, "wrong")).toThrow();
   });
 });

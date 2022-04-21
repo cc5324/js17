@@ -1,24 +1,9 @@
-// import { getFormattedInput } from "../utilities/syncInput/getFormattedInput.js";
-// import { checkPatternInput, checkDirectionInput } from "./checkChoiceInput.js";
 import { getOptionsInput } from "../utilities/syncInput/getOptionsInput.js";
 import turnPattern from "./turnPattern.js";
 
 main();
 
 function main() {
-  // const settingPattern = {
-  //   question: "請輸入 arrow / heart / triangle / S",
-  //   options: ["arrow", "heart", "triangle", "s"],
-  // };
-
-  // const settingDirection = {
-  //   question: "請輸入 up / down / left / right",
-  //   options: ["up", "down", "left", "right"],
-  // };
-
-  // const customizedPattern = getOptionsInput(settingPattern);
-  // const customizedDirection = getOptionsInput(settingDirection);
-
   const customizedPattern = getOptionsInput(["arrow", "heart", "triangle"]);
   const customizedDirection = getOptionsInput(["up", "down", "left", "right"]);
 
@@ -55,8 +40,7 @@ function main() {
   console.log(`Before:
 ${originalPattern}`);
 
-  console.log(`After:
-
+  console.log(`After:\n
 ${finalPattern}
 `);
 }

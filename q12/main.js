@@ -1,12 +1,12 @@
 import { range } from "../utilities/range.js";
-import { isPrimeNum } from "../q10/isPrimeNum.js";
+import { isPrime } from "../q10/isPrime.js";
 import { collectMultiples } from "./collectMultiples.js";
 
 main();
 
 function main() {
   let primesMultiplesArrays = range(10, 20)
-    .filter((number) => isPrimeNum(number))
+    .filter((number) => isPrime(number))
     .map((prime) => collectMultiples({ number: prime, topLimit: 100 }));
 
   primesMultiplesArrays.forEach((primesMultiplesArray) => {

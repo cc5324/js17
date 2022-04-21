@@ -1,4 +1,4 @@
-import { rl } from "./readline.js";
+import { readline } from "./readline.js";
 import { checkNotEmpty } from "../validation/validators.js";
 
 /**
@@ -21,7 +21,7 @@ export async function getFormattedInput({
     console.log(error.message);
     return getFormattedInput({ question, validators, returnType });
   }
-  return coercionInput(userInput, returnType);
+  return returnType(userInput);
 }
 
 /**
@@ -31,7 +31,7 @@ export async function getFormattedInput({
  */
 
 async function getInput(question) {
-  const userInput = rl.question(`${question}: `);
+  const userInput = readline.question(`${question}: `);
   return userInput;
 }
 
@@ -48,15 +48,6 @@ function validateInput(input, validators) {
 }
 
 /**
- * @param {string} userInput
- * @param {Number|String|Boolean} returnType
- */
-
-function coercionInput(input, returnType) {
-  return returnType(input);
-}
-
-/**
  * @async
  * @param {object} setting
  * @param {string} setting.question question to prompt
@@ -69,7 +60,7 @@ export async function getInputAndValidate({
   validators = [checkNotEmpty],
   returnType = String,
 }) {
-  const userInput = await rl.question(`${question}: `);
+  const userInput = await readline.question(`${question}: `);
   try {
     validators.forEach((validator) => {
       validator(userInput);

@@ -38,7 +38,7 @@ function getFormattedInput({
     console.log(error.message);
     return getFormattedInput({ question, validators, returnType });
   }
-  return coercionInput(userInput, returnType);
+  return returnType(userInput);
 }
 
 /**
@@ -64,13 +64,4 @@ function validateInput(input, validators) {
   });
 }
 
-/**
- * @param {string} userInput
- * @param {Number|String|Boolean} returnType
- */
-
-function coercionInput(input, returnType) {
-  return returnType(input);
-}
-
-export { getFormattedInput, getInput, validateInput, coercionInput };
+export { getFormattedInput, getInput, validateInput };

@@ -3,12 +3,10 @@ import { addTwoDiffArrayItems } from "./addArray.js";
 main();
 
 function main() {
-  const arr1 = [2, 3, 1, 7, 9];
-  const arr2 = [8, 7, 9, 3, 1];
+  const array1 = [2, 3, 1, 7, 9];
+  const array2 = [8, 7, 9, 3, 1];
 
-  const multiArr = addTwoDiffArrayItems(arr1, arr2);
+  const mergedArray = addTwoDiffArrayItems(array1, array2);
 
-  console.log(multiArr);
-  console.log(arr1);
-  console.log(arr2);
+  console.log(mergedArray);
 }
