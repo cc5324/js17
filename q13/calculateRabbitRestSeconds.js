@@ -8,3 +8,5 @@ export function calculateRabbitRestSeconds(distance) {
   );
   return restSeconds;
 }
+
+// console.log(calculateRabbitRestSeconds(100));

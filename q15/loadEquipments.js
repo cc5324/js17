@@ -20,4 +20,4 @@ export function loadEquipments({ equipments, maxWeight }) {
   return { totalWeight, sport };
 }
 
-export { loadEquipments };
+// export { loadEquipments };
