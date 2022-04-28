@@ -1,14 +1,30 @@
-import { loadEquipments } from "./loadEquipments";
-import { getRandomInteger } from "./getRandomInteger";
+import { loadEquipments } from "../loadEquipments";
+import { getRandomInteger } from "../getRandomInteger";
 
-jest.mock("./getRandomInteger");
-
+//** mock version 1 */
+jest.mock("../getRandomInteger");
 beforeEach(() => {
   return getRandomInteger
     .mockReturnValueOnce(0)
     .mockReturnValueOnce(1)
     .mockReturnValue(2);
 });
+
+// beforeEach(() => {});
+
+// const mock = jest.mock("./getRandomInteger", () => {
+//   return {
+//     getRandomInteger: jest
+//       .fn()
+//       .mockReturnValueOnce(0)
+//       .mockReturnValueOnce(1)
+//       .mockReturnValue(2),
+//   };
+// });
+
+// afterEach(() => {
+//   mock.mockClear();
+// });
 
 describe("測試 loadEquipments，其中 getRandomInteger 為 mock function，會回傳一次 0、一次 1、其餘皆回傳 2", () => {
   const equipments = [
@@ -41,6 +57,8 @@ describe("測試 loadEquipments，其中 getRandomInteger 為 mock function，�
       maxWeight: 200,
       equipments,
     });
+    console.log(`totalWeight`, totalWeight);
+    console.log(`sport`, sport);
     // expect(getRandomInteger).toHaveBeenCalled();
     expect(totalWeight).toBe(200);
     expect(sport).toEqual([1, 1, 3]);
@@ -51,6 +69,8 @@ describe("測試 loadEquipments，其中 getRandomInteger 為 mock function，�
       maxWeight: 160,
       equipments,
     });
+    console.log(`totalWeight`, totalWeight);
+    console.log(`sport`, sport);
     // expect(getRandomInteger).toHaveBeenCalled();
     expect(totalWeight).toBe(150);
     expect(sport).toEqual([1, 1, 2]);

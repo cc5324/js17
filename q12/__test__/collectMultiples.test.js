@@ -1,4 +1,4 @@
-import { collectMultiples } from "./collectMultiples.js";
+import { collectMultiples } from "../collectMultiples.js";
 
 describe("測試輸入兩個陣列，將兩個陣列對應項目相加並回傳", () => {
   test.each([

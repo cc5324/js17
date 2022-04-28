@@ -1,4 +1,4 @@
-import { gymFeeCalculator } from "./gymFeeCalculator";
+import { gymFeeCalculator } from "../gymFeeCalculator";
 
 describe("測試好想健身房會費計算，基本會費 500 元，第一期 79 折，滿五期折兩百", () => {
   test.each([
