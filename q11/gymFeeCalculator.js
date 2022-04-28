@@ -1,4 +1,4 @@
-function gymFeeCalculator(periods) {
+function gymFeeCalculator(totalPeriods) {
   const basicMonthFee = 500;
   const discount = {
     firstPeriod: 0.79,
@@ -19,7 +19,7 @@ function gymFeeCalculator(periods) {
     }
 
     period++;
-  } while (period <= periods);
+  } while (period <= totalPeriods);
 
   return total;
 }

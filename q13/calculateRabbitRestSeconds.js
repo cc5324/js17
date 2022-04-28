@@ -3,33 +3,55 @@ export function calculateRabbitRestSeconds(distance) {
   const rabbitSpeed = 20;
   const rabbitBackward = 1 / 5;
 
-  let restSeconds = Math.floor(
-    distance / turtleSpeed - distance / (rabbitSpeed - rabbitBackward)
-  );
-  return restSeconds;
+  const rabbitRestSeconds =
+    distance / turtleSpeed - distance / (rabbitSpeed - rabbitBackward);
+
+  console.log(`rabbitRestSeconds`, rabbitRestSeconds);
+  return Math.floor(rabbitRestSeconds);
+  // return rabbitRestSeconds;
 }
 
 export function complexCalculateRabbitRestSeconds(distance) {
-  const turtleSpeed = 0.28;
-  const rabbitSpeed = 20;
-  const rabbitBackward = 1;
+  const rabbit = {
+    speed: 20,
+    run: 0,
+    //* backward as function，進 function 判斷
+    backward: (seconds) => {
+      return seconds % 5 === 0 ? -1 : 0;
+    },
+    //! backward as number，在主程式中判斷
+    // backward: -1,
+  };
+
+  const turtle = {
+    speed: 0.28,
+    run: 0,
+  };
 
   let seconds = 0;
-  let turtleRun = 0;
-  let rabbitRun = 0;
 
-  while (rabbitRun <= distance) {
+  while (rabbit.run < distance) {
     seconds++;
-    rabbitRun += rabbitSpeed;
-    turtleRun += turtleSpeed;
+    rabbit.run += rabbit.speed;
+    turtle.run += turtle.speed;
 
-    if (seconds % 5 === 0) {
-      rabbitRun -= rabbitBackward;
-    }
+    //! backward as number，在主程式中判斷
+    // if (seconds % 5 === 0) {
+    //   rabbit.run += rabbit.backward;
+    // }
+
+    //* backward as function，進 function 判斷
+    rabbit.run += rabbit.backward(seconds);
+    // console.log(`rabbit`, rabbit);
+    // console.log(`turtle`, turtle);
   }
 
-  return Math.floor((distance - turtleRun) / turtleSpeed);
+  const rabbitRestSeconds = (distance - turtle.run) / turtle.speed;
+  // console.log(`rabbitRestSeconds`, rabbitRestSeconds);
+
+  return Math.floor(rabbitRestSeconds);
+  // return rabbitRestSeconds;
 }
 
-// console.log(calculateRabbitRestSeconds(500));
-// console.log(complexCalculateRabbitRestSeconds(500));
+// console.log(calculateRabbitRestSeconds(198));
+console.log(complexCalculateRabbitRestSeconds(198));

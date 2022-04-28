@@ -3,7 +3,6 @@
 兔子故意用每跑 5 秒鐘後退 1 公尺的方式來挑釁烏龜，
 請問兔子在途中還可以偷懶休息幾秒鐘再繼續跑並且贏得比賽?`;
 
-//TODO: module jest test
 import { calculateRabbitRestSeconds } from "./calculateRabbitRestSeconds.js";
 
 main();
