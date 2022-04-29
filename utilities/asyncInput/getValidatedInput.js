@@ -9,7 +9,7 @@ import { checkNotEmpty } from "../validation/validators.js";
  * @param {Number|String|Boolean} setting.returnType coercion input to specific type
  */
 
-export async function getFormattedInput({
+export async function getValidatedInput({
   question,
   validators = [checkNotEmpty],
   returnType = String,
@@ -19,7 +19,7 @@ export async function getFormattedInput({
     validateInput(userInput, validators);
   } catch (error) {
     console.log(error.message);
-    return getFormattedInput({ question, validators, returnType });
+    return getValidatedInput({ question, validators, returnType });
   }
   return returnType(userInput);
 }
@@ -30,7 +30,7 @@ export async function getFormattedInput({
  * @returns {string} user input
  */
 
-async function getInput(question) {
+export async function getInput(question) {
   const userInput = readline.question(`${question}: `);
   return userInput;
 }
@@ -41,7 +41,7 @@ async function getInput(question) {
  * @throws will throw error if userInput did not pass validators functions
  */
 
-function validateInput(input, validators) {
+export function validateInput(input, validators) {
   validators.forEach((validator) => {
     validator(input);
   });

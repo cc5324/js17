@@ -3,10 +3,10 @@ import {
   checkPositive,
   checkNotNegative,
 } from "../validation/validators.js";
-import { getFormattedInput } from "./getFormattedInput.js";
+import { getValidatedInput } from "./getValidatedInput.js";
 
 function getIntegerInput(question) {
-  return getFormattedInput({
+  return getValidatedInput({
     question,
     validators: [checkInteger],
     returnType: Number,
@@ -14,7 +14,7 @@ function getIntegerInput(question) {
 }
 
 function getNaturalNumberInput(question) {
-  return getFormattedInput({
+  return getValidatedInput({
     question,
     validators: [checkInteger, checkNotNegative],
     returnType: Number,
@@ -22,7 +22,7 @@ function getNaturalNumberInput(question) {
 }
 
 function getPositiveIntegerInput(question) {
-  return getFormattedInput({
+  return getValidatedInput({
     question,
     validators: [checkInteger, checkPositive],
     returnType: Number,

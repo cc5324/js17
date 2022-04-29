@@ -1,7 +1,7 @@
 import {
   calculateRabbitRestSeconds,
   complexCalculateRabbitRestSeconds,
-} from "./calculateRabbitRestSeconds.js";
+} from "../calculateRabbitRestSeconds.js";
 
 describe("測試輸入龜兔賽跑的比賽距離，輸出兔子在贏得比賽的前提下，可休息的秒數", () => {
   test.each([

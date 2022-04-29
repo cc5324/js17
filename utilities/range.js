@@ -1,5 +1,5 @@
 /**
- *
+ * 輸入兩個數字，回傳數字區間的陣列，間隔預設值為 1
  * @param {number} start integer starting from which the sequence of integers is to be returned.
  * @param {number} end integer before which the sequence of integers is to be returned.
  * @param {number} step integer value which determines the increment between each integer in the sequence.

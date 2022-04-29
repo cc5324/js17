@@ -1,8 +1,8 @@
 import { checkAlphabet } from "../validation/validators.js";
-import { getFormattedInput } from "./getFormattedInput.js";
+import { getValidatedInput } from "./getValidatedInput.js";
 
 function getAlphabetInput(question) {
-  return getFormattedInput({
+  return getValidatedInput({
     question,
     validators: [checkAlphabet],
   });

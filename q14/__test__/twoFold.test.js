@@ -1,4 +1,4 @@
-import { twoFold } from "./twoFold";
+import { twoFold } from "../twoFold";
 
 describe("細菌實驗中，原有 b 隻細菌，每經過 20 分鐘細菌數量會增加為原來的 2 倍", () => {
   describe("測試輸入原始細菌數(整數)及 20 倍數的分鐘數，輸出細菌繁殖數量", () => {
